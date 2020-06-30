@@ -1,0 +1,5 @@
+When is better to use POST vs GET request?
+
+Generally, POST should be used for sending data to server, GET for receiving data from server. 
+GET request should not be used for transferring sensitive data, such as login/password. Because parameters in GET request are passed via URL. 
+Also, GET request should not be used when we need send long string to server. GET requests have length restrictions.
