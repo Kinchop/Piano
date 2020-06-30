@@ -6,21 +6,21 @@ POST https://api.besttester.izh/login HTTP/1.1
 Host: api.besttester.izh
 Connection: keep-alive
 Accept: application/json
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 Accept-Encoding: gzip, deflate
 Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
 
 
-{"email":"user1","password":"password1"}
+email=user1&password=password1
 
 
 EXPECTED RESPONSE
 
 HTTP/1.1 200 OK
-content-type: application/json; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 set-cookie: api_token=xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-{"api_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxx", "loginSuccess":true}
+api_token=xxxxxxxxxxxxxxxxxxxxxxxxxxx&loginSuccess=true
 
 --------------------------------------------------------------------
 
