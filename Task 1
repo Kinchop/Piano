@@ -1,0 +1,51 @@
+1. Get a list of all users
+
+REQUEST:
+
+GET https://besttester.izh/users/ HTTP/1.1
+Host: besttester.izh
+Connection: keep-alive
+Accept: application/json
+Content-Type: application/json
+Accept-Encoding: gzip, deflate
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+
+RESPONSE:
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=utf-8
+
+{
+
+	"data": [{
+			"id": "1111111",
+			"first_name": "first_name1",
+			"last_name": "last_name1",
+			"email": "email@1.com",
+			"experience": ["exp01", "exp02", "exp03"]
+		},
+		{
+			"id": "2222222",
+			"first_name": "first_name2",
+			"last_name": "last_name2",
+			"email": "email@2.com",
+			"experience": ["exp11", "exp12", "exp13"]
+		},
+		{
+			"id": "3333333",
+			"first_name": "first_name3",
+			"last_name": "last_name3",
+			"email": "email@3.com",
+			"experience": ["exp21", "exp22", "exp23"]
+		},
+		{
+			"id": "4444444",
+			"first_name": "first_name4",
+			"last_name": "last_name4",
+			"email": "email@4.com",
+			"experience": ["exp31", "exp32", "exp33"]
+		}
+	]
+}
