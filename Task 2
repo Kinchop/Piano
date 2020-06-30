@@ -1,0 +1,90 @@
+2. Add three new users to the database
+
+SET UP REQUEST (getting token for private api):
+
+POST https://api.besttester.izh/login HTTP/1.1
+Host: api.besttester.izh
+Connection: keep-alive
+Accept: application/json
+Content-Type: application/json
+Accept-Encoding: gzip, deflate
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+{"email":"user1","password":"password1"}
+
+
+EXPECTED RESPONSE
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=utf-8
+set-cookie: api_token=xxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+{"api_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxx", "loginSuccess":true}
+
+--------------------------------------------------------------------
+
+REQUEST
+
+POST https://api.besttester.izh/create HTTP/1.1
+Host: api.besttester.izh
+Connection: keep-alive
+Accept: application/json
+Content-Type: application/json
+Accept-Encoding: gzip, deflate
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: api_token=xxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+{
+	"users": [{
+			"id": "5555555",
+			"first_name": "first_name5",
+			"last_name": "last_name5,
+			"email": "email@5.com",
+			"experience": ["exp51", "exp52", "exp53"]
+		},
+		{
+			"id": "6666666",
+			"first_name": "first_name6",
+			"last_name": "last_name6",
+			"email": "email@6.com",
+			"experience": ["exp61", "exp62", "exp63"]
+		},
+		{
+			"id": "7777777",
+			"first_name": "first_name7",
+			"last_name": "last_name7",
+			"email": "email@7.com",
+			"experience": ["exp71", "exp72", "exp73"]
+		}
+	]
+}
+
+
+EXPECTED RESPONSES
+
+a) (if server not accept content-type)
+
+HTTP/1.1 415 Unsupported Media Type
+Content-Type: text/html
+
+Error: Unsupported Content Type
+
+b) (if server can not parse json model)
+
+HTTP/1.1 400 Bad Request
+
+{
+  "code": 400,
+  "message": "Bad Request"
+}
+
+c) (success)
+
+HTTP/1.1 201 Created 
+content-type: application/json; charset=utf-8  
+
+{
+  "code": 201,
+  "message": "Created"
+}
