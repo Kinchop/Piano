@@ -1,0 +1,24 @@
+3. Get a list of users with desired salary <100000
+
+REQUEST
+
+GET https://api.besttester.izh/users?maxsalary=100000&minsalary=0 HTTP/1.1
+Host: api.besttester.izh
+Connection: keep-alive
+Accept: application/json
+Content-Type: application/json
+Accept-Encoding: gzip, deflate
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: api_token=xxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+RESPONSE
+
+a) (Most probably response. Because there is no maxsalary and minsalary in specification)
+
+HTTP/1.1 400 Bad Request
+content-type: application/json; charset=utf-8
+
+{
+  "code": 400,
+  "message": "Bad Request" 
+}
